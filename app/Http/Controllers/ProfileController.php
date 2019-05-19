@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\helper\FileUpload;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
-use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -37,10 +37,7 @@ class ProfileController extends Controller
             'image' => ''
         ]);
         if ($request->image) {
-            $imagePath = request('image')->store('profiles', 'public');
-
-            $image = Image::make(public_path("storage/{$imagePath}"))->resize(1400, 1400);
-            $image->save();
+            $imagePath = FileUpload::saveImage('image', 'uploads');
             $imageArray = ['image' => $imagePath];
         }
 
