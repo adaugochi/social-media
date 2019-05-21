@@ -31,13 +31,13 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $validateData = $request->validate([
-            'name' => 'required',
-            'bio' => 'required',
-            'url' => 'url',
-            'image' => ''
+            'name' => '',
+            'bio' => '',
+            'url' => '',
+            'image' => 'image'
         ]);
         if ($request->image) {
-            $imagePath = FileUpload::saveImage('image', 'uploads');
+            $imagePath = FileUpload::saveImage('image', 'profiles');
             $imageArray = ['image' => $imagePath];
         }
 

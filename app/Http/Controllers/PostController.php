@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('post.create');
+        $title = 'Add New Post';
+        $buttonText = 'Add';
+        return view('post.create-edit', compact('title', 'buttonText'));
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $validateData = $request->validate([
             'caption' => 'required',
@@ -37,16 +39,18 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('post.edit', compact('post'));
+        $title = 'Edit Post';
+        $buttonText = 'Update';
+        return view('post.create-edit', compact('post', 'title', 'buttonText'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Post $post)
     {
         $validateData = $request->validate([
             'caption' => 'required'
         ]);
 
-        auth()->user()->posts()->update($validateData);
+        $post->update($validateData);
 
         return redirect('/profile/'.auth()->user()->id);
     }

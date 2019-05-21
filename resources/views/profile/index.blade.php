@@ -44,7 +44,7 @@
             </div>
             <div>{{$user->profile->bio}}</div>
             <div>
-                <a href="#">{{$user->profile->url ?? 'N/A'}}</a>
+                <a href="{{$user->profile->url}}">{{$user->profile->url}}</a>
             </div>
         </div>
     </div>

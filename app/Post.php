@@ -14,4 +14,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopePosts($query)
+    {
+        $users = auth()->user()->follows->pluck('user_id');
+        return $query->whereIn('user_id', $users)->with('user')->latest()->paginate(2);
+    }
 }

@@ -22,7 +22,7 @@ class FileUpload
     {
         $path = request($name)->store($folder, 'public');
 
-        $image = Image::make(public_path("storage/{$path}"))->fit(1000, 1200);
+        $image = Image::make(public_path("storage/{$path}"))->fit(1000, 1000);
         $image->save();
         return $path;
     }
