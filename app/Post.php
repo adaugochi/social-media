@@ -18,6 +18,6 @@ class Post extends Model
     public function scopePosts($query)
     {
         $users = auth()->user()->follows->pluck('user_id');
-        return $query->whereIn('user_id', $users)->with('user')->latest()->paginate(2);
+        return $query->whereIn('user_id', $users)->with('user');
     }
 }

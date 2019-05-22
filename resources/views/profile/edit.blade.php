@@ -16,11 +16,7 @@
                            class="form-control @error('name') is-invalid @enderror"
                            name="name" value="{{$user->profile->name}}" autocomplete="name" autofocus>
 
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                             <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    @include('partials.error', ['errText' => 'name'])
                 </div>
 
                 <div class="form-group row">
@@ -32,11 +28,7 @@
                               autofocus>{{ (old('bio')) ?? $user->profile->bio }}
                     </textarea>
 
-                    @error('bio')
-                    <span class="invalid-feedback" role="alert">
-                             <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    @include('partials.error', ['errText' => 'bio'])
                 </div>
 
                 <div class="form-group row">
@@ -47,11 +39,7 @@
                            name="url" value="{{ (old('url')) ?? $user->profile->url}}"
                            autocomplete="url" autofocus>
 
-                    @error('url')
-                    <span class="invalid-feedback" role="alert">
-                             <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    @include('partials.error', ['errText' => 'url'])
                 </div>
 
                 <div class="form-group row">
@@ -61,11 +49,7 @@
                            class="form-control-file @error('image') is-invalid @enderror"
                            name="image" value="{{$user->profile->image}}">
 
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                             <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    @include('partials.error', ['errText' => 'image'])
                 </div>
 
                 <div class="row">
