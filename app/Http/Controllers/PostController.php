@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\helper\FileUpload;
+use App\Helpers\FileUpload;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -57,7 +57,8 @@ class PostController extends Controller
 
     public function delete(Post $post)
     {
-
+        $image_path = public_path().'/storage/'.$post->image;
+        unlink($image_path);
         $post->delete();
 
         return redirect('/profile/'.auth()->user()->id);

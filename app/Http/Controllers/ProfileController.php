@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\helper\FileUpload;
+use App\Helpers\FileUpload;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
@@ -36,6 +36,7 @@ class ProfileController extends Controller
             'url' => '',
             'image' => 'image'
         ]);
+
         if ($request->image) {
             $imagePath = FileUpload::saveImage('image', 'profiles');
             $imageArray = ['image' => $imagePath];
