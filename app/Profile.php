@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property mixed image
  * @property mixed url
+ * @property mixed user
  */
 class Profile extends Model
 {

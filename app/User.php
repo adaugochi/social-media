@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 
 /**
  * @method static find($user)
+ * @property mixed profile
  */
 class User extends Authenticatable
 {

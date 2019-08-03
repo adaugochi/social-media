@@ -11,7 +11,7 @@ class FileUpload
      * @param $folder
      * @return
      */
-    function saveImage($name, $folder)
+    public static function saveImage($name, $folder)
     {
         $path = request($name)->store($folder, 'public');
         $image = Image::make(public_path("storage/{$path}"))->fit(1000, 1000);
