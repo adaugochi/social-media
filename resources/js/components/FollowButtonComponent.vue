@@ -12,7 +12,7 @@
 
         props: ['userId', 'follows'],
 
-        data: function () {
+        data() {
             return {
                 status: this.follows,
             }
